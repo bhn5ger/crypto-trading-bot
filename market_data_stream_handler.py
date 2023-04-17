@@ -1,7 +1,11 @@
+import os 
 import pandas as pd
 import sqlalchemy
 from binance.client import Client 
 from binance import BinanceSocketManager
+
+api_key = os.environ.get('binance_api')
+api_secret = os.environ.get('binance_secret')
 
 client = Client(api_key, api_secret)
 bsm = BinanceSocketManager(client)
