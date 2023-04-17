@@ -7,7 +7,8 @@ client = Client(api_key, api_secret)
 bsm = BinanceSocketManager(client)
 socket = bsm.trade_socket('BTCUSDT')
 
-await socket.__aenter__()
-msg = await socket.recv()
-print(msg)
+async def get_data():
+    await socket.__aenter__()
+    msg = await socket.recv()
+    print(msg)
 
