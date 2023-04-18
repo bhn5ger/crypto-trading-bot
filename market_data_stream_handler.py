@@ -8,7 +8,7 @@ from binance import BinanceSocketManager
 API_KEY = os.environ.get('binance_api')
 API_SECRET = os.environ.get('binance_secret')
 
-def createframe(msg):
+def create_frame(msg):
 
     df = pd.DataFrame([msg])
     df = df.loc[:,['s', 'E', 'p']]
@@ -26,12 +26,12 @@ async def main():
     async with socket as ts:
         while True:
             msg = await ts.recv()
-            frame = createframe(msg)
+            frame = create_frame(msg)
             frame.to_sql('BTCUSDT', engine, if_exists='append', index=False)
             print(frame)
 
 engine = sqlalchemy.create_engine('sqlite:///BTCUSDTstream.db')
-    
+
 loop = asyncio.get_event_loop()
 msg = loop.run_until_complete(main())
 

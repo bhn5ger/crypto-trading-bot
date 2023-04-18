@@ -10,6 +10,9 @@ client = Client(API_KEY, API_SECRET)
 
 engine = sqlalchemy.create_engine('sqlite:///BTCUSDTstream.db')
 
-df = pd.read_sql('BTCUSDT', engine)
+def get_cumulative_returns():
+
+    df = pd.read_sql('BTCUSDT', engine)
+    
 
 print(df)
