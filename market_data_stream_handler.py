@@ -8,8 +8,8 @@ from binance import BinanceSocketManager
 API_KEY = os.environ.get('binance_api')
 API_SECRET = os.environ.get('binance_secret')
 
-
-msg = None
+print(API_KEY)
+print(API_SECRET)
 
 async def main():
 
@@ -18,14 +18,15 @@ async def main():
     socket = bsm.trade_socket('BTCUSDT')
 
     async with socket as ts:
-
         msg = await ts.recv()
         return msg
 
 
-def createframe():
-    loop = asyncio.get_event_loop()
-    msg = loop.run_until_complete(main())
+loop = asyncio.get_event_loop()
+msg = loop.run_until_complete(main())
+
+def createframe(msg):
+
     df = pd.DataFrame([msg])
     df = df.loc[:,['s', 'E', 'p']]
     df.columns = ['symbol', 'Time', 'Price']
@@ -33,5 +34,4 @@ def createframe():
     df.Time = pd.to_datetime(df.Time, unit = 'ms')
     return df
 
-
-print(createframe())
+print(createframe(msg))
