@@ -10,13 +10,18 @@ client = Client(API_KEY, API_SECRET)
 
 engine = sqlalchemy.create_engine('sqlite:///BTCUSDTstream.db')
 
-def get_cumulative_returns(lookback):
+def get_cumulative_returns(df):
+
+    cumret = (df.Price.pct_change() + 1).cumprod() - 1
+
+    return cumret
+
+def get_lookback_period(lookback):
 
     df = pd.read_sql('BTCUSDT', engine)
     lookbackperiod = df.iloc[-lookback:]
-    cumret = (lookbackperiod.Price.pct_change() + 1).cumprod() - 1
 
-    return cumret
+    return lookbackperiod
 
 def get_price_data_since_buy(txnt_time):
 
