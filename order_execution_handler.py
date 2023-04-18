@@ -27,6 +27,10 @@ def strategy(entry, lookback, qty, open_position=False):
                 open_position = True
                 break
 
-
+    
+    if open_position:
+        
+        while True:
+            pass
 
     

@@ -18,4 +18,10 @@ def get_cumulative_returns(lookback):
 
     return cumret
 
+def get_price_data_since_buy(txnt_time):
+
+    df = pd.read_sql('BTCUSDT', engine)
+    sincebuy = df.loc[df.Time > pd.to_datetime(txnt_time, unit='ms')]
+
+    return sincebuy
 
