@@ -1,18 +1,23 @@
 import os 
 import pandas as pd
 import sqlalchemy
+import asyncio
 from binance.client import Client 
 from binance import BinanceSocketManager
 
-api_key = os.environ.get('binance_api')
-api_secret = os.environ.get('binance_secret')
+API_KEY = os.environ.get('binance_api')
+API_SECRET = os.environ.get('binance_secret')
 
-client = Client(api_key, api_secret)
-bsm = BinanceSocketManager(client)
-socket = bsm.trade_socket('BTCUSDT')
+async def main():
+    
+    client = Client(API_KEY, API_SECRET)    
+    bsm = BinanceSocketManager(client)
+    socket = bsm.trade_socket('BTCUSDT')
 
-async def get_data():
-    await socket.__aenter__()
-    msg = await socket.recv()
-    print(msg)
+    async with socket as ts:
 
+        msg = await ts.recv()
+        print(msg)
+
+loop = asyncio.get_event_loop()
+loop.run_until_complete(main())
