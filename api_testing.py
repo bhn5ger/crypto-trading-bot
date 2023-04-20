@@ -1,4 +1,5 @@
 import os
+import pandas as pd
 from binance.client import Client 
 
 API_KEY = os.environ.get('binance_api')
@@ -8,15 +9,25 @@ print(API_KEY, API_SECRET)
 
 client = Client(API_KEY, API_SECRET, tld='us')
 
-#First get USDT price
-usdt_price = client.get_symbol_ticker(symbol="USDT")
+#First get BTC price
+btc_price = client.get_symbol_ticker(symbol="BTCUSDT")
 
-# Calculate how much USDT $200 can buy
-buy_quantity = round(200 / float(usdt_price['price']))
+# Calculate how much BTC $97 can buy
+buy_quantity = 97 / float(btc_price['price'])
 
-print(usdt_price['price'])
+print(float(btc_price['price']) * buy_quantity)
+
+print(buy_quantity)
 
 '''
+info = client.get_account()
+
+df = pd.DataFrame(info["balances"])
+df["free"] = df["free"].astype(float).round(4)
+df = df[df["free"] > 0]
+print(df)
+'''
+
 # Create test order
 order = client.create_test_order(
         symbol='BTCUSDT',
@@ -24,6 +35,6 @@ order = client.create_test_order(
         type=Client.ORDER_TYPE_MARKET,
         quantity=buy_quantity
     )
-'''
+
 
 
