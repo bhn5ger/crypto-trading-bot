@@ -5,36 +5,35 @@ from binance.client import Client
 API_KEY = os.environ.get('binance_api')
 API_SECRET = os.environ.get('binance_secret')
 
-print(API_KEY, API_SECRET)
-
 client = Client(API_KEY, API_SECRET, tld='us')
 
-#First get BTC price
-btc_price = client.get_symbol_ticker(symbol="BTCUSDT")
-
-# Calculate how much BTC $97 can buy
-buy_quantity = 97 / float(btc_price['price'])
-
-print(float(btc_price['price']) * buy_quantity)
-
-print(buy_quantity)
-
 '''
-info = client.get_account()
+BUY RESPONSE
 
-df = pd.DataFrame(info["balances"])
-df["free"] = df["free"].astype(float).round(4)
-df = df[df["free"] > 0]
-print(df)
+{'symbol': 'BTCUSDT', 'orderId': 988476733, 'orderListId': -1, 'clientOrderId': '5GbaUurWYkpCEHTSjPvoxN', 
+'transactTime': 1681984758356, 'price': '0.00000000', 'origQty': '0.00010000', 'executedQty': '0.00010000', 
+'cummulativeQuoteQty': '2.88652000', 'status': 'FILLED', 'timeInForce': 'GTC', 'type': 'MARKET', 
+'side': 'BUY', 'workingTime': 1681984758356, 'fills': [{'price': '28865.20000000', 'qty': '0.00010000', 
+'commission': '0.00000000', 'commissionAsset': 'BNB', 'tradeId': 22187132}], 'selfTradePreventionMode': 
+'EXPIRE_MAKER'}
 '''
 
-# Create test order
-order = client.create_test_order(
-        symbol='BTCUSDT',
-        side=Client.SIDE_BUY,
-        type=Client.ORDER_TYPE_MARKET,
-        quantity=buy_quantity
-    )
+while True:
 
+    btc_price = client.get_symbol_ticker(symbol="BTCUSDT")
+    
+    print(float(btc_price['price']))
 
+    if float(btc_price['price']) > 29000:
+        '''
+        order = client.create_order(
+                                    symbol='BTCUSDT',
+                                    side=Client.SIDE_SELL,
+                                    type=Client.ORDER_TYPE_MARKET,
+                                    quantity=0.0001                                                
+                                )
+        '''
+        print("order")
+
+        break
 
