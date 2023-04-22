@@ -13,10 +13,10 @@ def strategy(entry, lookback, qty, open_position=False):
 
     if not open_position:
 
-        look_back_period = market_data_utils.get_lookback_period(lookback)
-        cum_ret = market_data_utils.get_cumulative_returns(look_back_period)
-
         while True:
+
+            look_back_period = market_data_utils.get_lookback_period(lookback)
+            cum_ret = market_data_utils.get_cumulative_returns(look_back_period)
 
             print(cum_ret[cum_ret.last_valid_index()])
             print(entry)
