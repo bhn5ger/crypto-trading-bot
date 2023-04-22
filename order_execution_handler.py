@@ -5,16 +5,22 @@ from binance.client import Client
 API_KEY = os.environ.get('binance_api')
 API_SECRET = os.environ.get('binance_secret')
 
-client = Client(API_KEY, API_SECRET)
+client = Client(API_KEY, API_SECRET, tld='us')
+
+# lookback is in seconds
 
 def strategy(entry, lookback, qty, open_position=False):
 
-    while True:
+    if not open_position:
 
         look_back_period = market_data_utils.get_lookback_period(lookback)
         cum_ret = market_data_utils.get_cumulative_returns(look_back_period)
 
-        if not open_position:
+        while True:
+
+            print(cum_ret[cum_ret.last_valid_index()])
+            print(entry)
+            print('---------------------------------')
 
             if cum_ret[cum_ret.last_valid_index()] > entry:
 
@@ -49,6 +55,12 @@ def strategy(entry, lookback, qty, open_position=False):
                                                 type='MARKET',
                                                 quantity=qty                                                
                                                )
+                    
+                    print(order)
+                    break
+    
+strategy(0.0001, 60, 0.001)
+
 
 
     
