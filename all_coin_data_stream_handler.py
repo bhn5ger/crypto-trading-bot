@@ -20,14 +20,36 @@ non_lev = [symbol for symbol in symbols if all(excludes not in symbol for exclud
 relevant = [symbol for symbol in non_lev if symbol.endswith('USDT')]
 multi = [i.lower() + '@trade' for i in relevant]
 
-def createFrame(msg):
-    
+def create_frame(msg):
+
     df = pd.DataFrame([msg['data']])
     df = df.loc[:,['s','E','p']]
     df.columns = ['symbol', 'Time', 'Price']
     df.Price = df.Price.astype(float)
     df.Time = pd.to_datetime(df.Time, unit='ms')
     return df
+
+async def main():
+
+    client = await AsyncClient.create()
+    bm = BinanceSocketManager(client)
+    ms = bm.multiplex_socket(multi)
+
+    async with ms as tscm:
+        while True:
+            msg = await tscm.recv()
+            if msg:
+                frame = create_frame(msg)
+                frame.to_sql(frame.symbol[0], engine, if_exists='append', index=False)
+
+    await client.close_connection()
+
+engine = sqlalchemy.create_engine('sqlite:///BTCUSDTstream.db')
+
+loop = asyncio.get_event_loop()
+msg = loop.run_until_complete(main())
+
+ 
 
 
 
