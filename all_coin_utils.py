@@ -13,7 +13,7 @@ client = Client(API_KEY, API_SECRET, tld='us') # not necessary?
 
 engine = sqlalchemy.create_engine('sqlite:///CryptoDB.db')
 
-symbols = pd.read_sql('SELECT name FROM sqlite_master WHERE type="table"', engine)
+symbols = pd.read_sql('SELECT name FROM sqlite_master WHERE type="table"', engine).name.to_list()
 
-
+print(symbols)
 
