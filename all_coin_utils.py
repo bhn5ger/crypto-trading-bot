@@ -22,8 +22,13 @@ def get_coin_price_in_past_n_minutes(symbol, lookback):
     qry_str = f"""SELECT * FROM '{symbol}' WHERE TIME >= '{before}'"""
     return pd.read_sql(qry_str, engine)
 
-def get_coin_with_greatest_cumulative_returns_in_past_n_minutes():
-    pass
+def get_coin_with_greatest_cumulative_returns_in_past_n_minutes(lookback):
+    
+    returns = [] # 0.015 -> 1.5% cumulative return
+    for symbol in symbols:
+        prices = get_coin_price_in_past_n_minutes(symbol, lookback).Price
+        cumret = (prices.pct_change() + 1).prod() - 1
+        returns.append(cumret)
 
 print(get_coin_price_in_past_n_minutes('BTCUSDT', 60))
 
