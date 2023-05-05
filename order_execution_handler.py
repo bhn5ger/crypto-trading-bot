@@ -1,5 +1,5 @@
 import os
-import market_data_utils
+import btc_usdt_data_utils
 from binance.client import Client 
 
 API_KEY = os.environ.get('binance_api')
@@ -15,8 +15,8 @@ def strategy(entry, lookback, qty, open_position=False):
 
         while True:
 
-            look_back_period = market_data_utils.get_lookback_period(lookback)
-            cum_ret = market_data_utils.get_cumulative_returns(look_back_period)
+            look_back_period = btc_usdt_data_utils.get_lookback_period(lookback)
+            cum_ret = btc_usdt_data_utils.get_cumulative_returns(look_back_period)
 
             print(cum_ret[cum_ret.last_valid_index()])
             print(entry)
@@ -40,11 +40,11 @@ def strategy(entry, lookback, qty, open_position=False):
         
         while True:
             
-            since_buy = market_data_utils.get_price_data_since_buy(1681984758356)
+            since_buy = btc_usdt_data_utils.get_price_data_since_buy(1681984758356)
 
             if len(since_buy) > 1:
 
-                since_buy_ret = market_data_utils.get_cumulative_returns(since_buy)
+                since_buy_ret = btc_usdt_data_utils.get_cumulative_returns(since_buy)
                 last_entry = since_buy_ret[since_buy_ret.last_valid_index()]
 
                 print(last_entry)

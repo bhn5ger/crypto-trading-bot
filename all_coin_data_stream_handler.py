@@ -41,10 +41,10 @@ async def main():
             if msg:
                 frame = create_frame(msg)
                 frame.to_sql(frame.symbol[0], engine, if_exists='append', index=False)
-
+                print(pd.read_sql('BTCUSDT', engine))
+                
     await client.close_connection()
 
-engine = sqlalchemy.create_engine('sqlite:///BTCUSDTstream.db')
 
 loop = asyncio.get_event_loop()
 msg = loop.run_until_complete(main())
