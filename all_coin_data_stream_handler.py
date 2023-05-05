@@ -20,5 +20,14 @@ non_lev = [symbol for symbol in symbols if all(excludes not in symbol for exclud
 relevant = [symbol for symbol in non_lev if symbol.endswith('USDT')]
 multi = [i.lower() + '@trade' for i in relevant]
 
+def createFrame(msg):
+    
+    df = pd.DataFrame([msg['data']])
+    df = df.loc[:,['s','E','p']]
+    df.columns = ['symbol', 'Time', 'Price']
+    df.Price = df.Price.astype(float)
+    df.Time = pd.to_datetime(df.Time, unit='ms')
+    return df
+
 
 
