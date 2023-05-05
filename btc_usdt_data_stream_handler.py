@@ -3,7 +3,7 @@ import pandas as pd
 import sqlalchemy
 import asyncio
 from binance.client import Client 
-from binance import BinanceSocketManager
+from binance import AsyncClient, BinanceSocketManager
 
 API_KEY = os.environ.get('binance_api')
 API_SECRET = os.environ.get('binance_secret')
@@ -19,7 +19,7 @@ def create_frame(msg):
 
 async def main():
 
-    client = Client(API_KEY, API_SECRET)    
+    client = Client(API_KEY, API_SECRET)
     bsm = BinanceSocketManager(client)
     socket = bsm.trade_socket('BTCUSDT')
 

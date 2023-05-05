@@ -40,12 +40,15 @@ def strategy(entry, lookback, qty, open_position=False):
         
         while True:
             
-            since_buy = market_data_utils.get_price_data_since_buy(order['transactTime'])
+            since_buy = market_data_utils.get_price_data_since_buy(1681984758356)
 
             if len(since_buy) > 1:
 
                 since_buy_ret = market_data_utils.get_cumulative_returns(since_buy)
                 last_entry = since_buy_ret[since_buy_ret.last_valid_index()]
+
+                print(last_entry)
+                print(last_entry > 0.0015 or last_entry < -0.0015)
 
                 if last_entry > 0.0015 or last_entry < -0.0015:
 
@@ -59,7 +62,7 @@ def strategy(entry, lookback, qty, open_position=False):
                     print(order)
                     break
     
-strategy(0.0001, 60, 0.001)
+strategy(0.0001, 60, 0.0001, open_position=True)
 
 
 

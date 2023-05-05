@@ -25,14 +25,14 @@ while True:
     print(float(btc_price['price']))
 
     if float(btc_price['price']) > 29000:
-        '''
+
         order = client.create_order(
                                     symbol='BTCUSDT',
                                     side=Client.SIDE_SELL,
                                     type=Client.ORDER_TYPE_MARKET,
                                     quantity=0.0001                                                
                                 )
-        '''
+
         print("order")
 
         break

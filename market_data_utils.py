@@ -1,12 +1,12 @@
 import os
 import sqlalchemy
 import pandas as pd
-from binance.client import Client 
+from binance.client import Client # not necessary?
 
 API_KEY = os.environ.get('binance_api')
 API_SECRET = os.environ.get('binance_secret')
 
-client = Client(API_KEY, API_SECRET)
+client = Client(API_KEY, API_SECRET, tld='us') # not necessary?
 
 engine = sqlalchemy.create_engine('sqlite:///BTCUSDTstream.db')
 
