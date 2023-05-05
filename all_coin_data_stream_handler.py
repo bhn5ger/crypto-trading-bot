@@ -12,7 +12,14 @@ engine = sqlalchemy.create_engine('sqlite:///CryptoDB.db')
 
 client = Client()
 
-print(client.get_exchange_info())
+info = client.get_exchange_info()
+
+symbols = [x['symbol'] for x in info['symbols']]
+exclude = ['UP', 'DOWN', 'BEAR', 'BULL']
+non_lev = [symbol for symbol in symbols if all(excludes not in symbol for excludes in exclude)]
+
+print(non_lev)
+
 
 
 
