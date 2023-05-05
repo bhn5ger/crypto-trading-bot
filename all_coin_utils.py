@@ -15,12 +15,15 @@ engine = sqlalchemy.create_engine('sqlite:///CryptoDB.db')
 
 symbols = pd.read_sql('SELECT name FROM sqlite_master WHERE type="table"', engine).name.to_list()
 
-def get_coin_price_n_minutes_ago(symbol, lookback):
+def get_coin_price_in_past_n_minutes(symbol, lookback):
 
     now = dt.datetime.now() + dt.timedelta(hours=4) # Convert EST to Binance time which is in UTC
     before = now - dt.timedelta(minutes=lookback)
     qry_str = f"""SELECT * FROM '{symbol}' WHERE TIME >= '{before}'"""
     return pd.read_sql(qry_str, engine)
 
-print(get_coin_price_n_minutes_ago('BTCUSDT', 10))
+def get_coin_with_greatest_cumulative_returns_in_past_n_minutes():
+    pass
+
+print(get_coin_price_in_past_n_minutes('BTCUSDT', 60))
 
