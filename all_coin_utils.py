@@ -36,10 +36,10 @@ def get_coin_with_greatest_cumulative_returns_in_past_n_minutes(lookback):
 
 def get_minimum_permitted_investment_qty(symbol):
 
-    info = client.get_symbol_info(symbol=symbol)
+    info = client.get_symbol_info(symbol='TVKUSDT')
+    print(info)
     lotsize = float([i for i in info['filters'] if i['filterType'] == 'LOT_SIZE'][0]['minQty'])
 
     return lotsize
 
-print(get_minimum_permitted_investment_qty('ETHUSDT'))
 
