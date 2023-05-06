@@ -42,8 +42,9 @@ async def main():
                 frame = create_frame(msg)
                 frame.to_sql(frame.symbol[0], engine, if_exists='append', index=False)
                 print(pd.read_sql('BTCUSDT', engine))
-                
+
     await client.close_connection()
+    
 
 
 loop = asyncio.get_event_loop()
