@@ -30,5 +30,16 @@ def get_coin_with_greatest_cumulative_returns_in_past_n_minutes(lookback):
         cumret = (prices.pct_change() + 1).prod() - 1
         returns.append(cumret)
 
-print(get_coin_price_in_past_n_minutes('BTCUSDT', 60))
+    top_coin = symbols[returns.index(max(returns))]
+    
+    return top_coin 
+
+def get_minimum_permitted_investment_qty(symbol):
+
+    info = client.get_symbol_info(symbol=symbol)
+    lotsize = float([i for i in info['filters'] if i['filterType'] == 'LOT_SIZE'][0]['minQty'])
+
+    return lotsize
+
+print(get_minimum_permitted_investment_qty('ETHUSDT'))
 

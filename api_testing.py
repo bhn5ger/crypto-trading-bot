@@ -28,12 +28,12 @@ while True:
 
         order = client.create_order(
                                     symbol='BTCUSDT',
-                                    side=Client.SIDE_SELL,
+                                    side=Client.SIDE_BUY,
                                     type=Client.ORDER_TYPE_MARKET,
-                                    quantity=0.0001                                                
+                                    quantity=0.0001                                             
                                 )
 
-        print("order")
+        print(order)
 
         break
 

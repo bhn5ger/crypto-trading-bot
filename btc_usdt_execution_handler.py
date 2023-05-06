@@ -9,7 +9,7 @@ client = Client(API_KEY, API_SECRET, tld='us')
 
 # lookback is in seconds
 
-def strategy(entry, lookback, qty, open_position=False):
+def btc_usdt_strategy(entry, lookback, qty, open_position=False):
 
     if not open_position:
 
@@ -62,7 +62,7 @@ def strategy(entry, lookback, qty, open_position=False):
                     print(order)
                     break
     
-strategy(0.0001, 60, 0.0001, open_position=True)
+btc_usdt_strategy(0.0001, 60, 0.0001, open_position=True)
 
 
 
