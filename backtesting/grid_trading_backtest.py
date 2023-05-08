@@ -41,4 +41,15 @@ if __name__ == "__main__":
 
             levels = get_levels(opens, '2023-01-01')
 
-    print()
+            if row.low <= levels[0]:
+
+                print('buy')
+                in_position = True
+
+        if in_position:
+
+            if row.High >= levels[1]:
+
+                print('sold')
+                in_position = False
+
