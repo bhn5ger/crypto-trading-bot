@@ -31,7 +31,14 @@ if __name__ == "__main__":
 
     df = get_data('BTCUSDT', '2023-01-01')
     opens = df.resample('D').first().Open
-    levels = get_levels(opens, '2023-01-01')
     df_t = sliced_df(df, '2023-01-01')
+
+    in_position = False
+
+    for index, row in df_t.iterrows():
+
+        if not in_position:
+
+            levels = get_levels(opens, '2023-01-01')
 
     print()
