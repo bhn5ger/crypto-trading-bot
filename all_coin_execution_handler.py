@@ -8,11 +8,16 @@ from binance import AsyncClient, BinanceSocketManager
 API_KEY = os.environ.get('binance_api')
 API_SECRET = os.environ.get('binance_secret')
 
-client = Client(API_KEY, API_SECRET, tld='us')
+SPOT_TRADING_API_KEY = os.environ.get('spot_trading_binance_api')
+SPOT_TRADING_API_SECRET = os.environ.get('spot_trading_binance_secret')
 
+client = Client(API_KEY, API_SECRET)
+spot_trading_client = Client(SPOT_TRADING_API_KEY, SPOT_TRADING_API_SECRET, tld='us')
 # lookback is in minutes
 
 def all_coin_strategy(lookback, investment_amt):
+
+    # TO-DO: Try-catch blocks
 
     top_coin = all_coin_utils.get_coin_with_greatest_cumulative_returns_in_past_n_minutes(lookback)
     lot_size = all_coin_utils.get_minimum_permitted_investment_qty(top_coin)
@@ -23,7 +28,7 @@ def all_coin_strategy(lookback, investment_amt):
 
     if float(free_usd) > investment_amt:
 
-        order = client.create_order(
+        order = spot_trading_client.create_order(
                                     symbol=top_coin, 
                                     side='BUY',
                                     type='MARKET',
@@ -31,11 +36,11 @@ def all_coin_strategy(lookback, investment_amt):
                                    )
         
         buyprice = float(order['fills'][0]['price'])
+        return top_coin, buyprice, buy_quantity
         
     else:
-        print('order has not been executed')
-        quit()
-
+        return None, None, None
+    
 def create_frame(msg):
 
     df = pd.DataFrame([msg])
@@ -47,7 +52,9 @@ def create_frame(msg):
 
 async def main(coin, buyprice, buy_quantity):
 
-    bm = BinanceSocketManager(client)
+    client_ = await AsyncClient.create()
+
+    bm = BinanceSocketManager(client_)
     ts = bm.trade_socket(coin)
 
     async with ts as tscm:
@@ -55,22 +62,25 @@ async def main(coin, buyprice, buy_quantity):
             msg = await tscm.recv()
             if msg:
                 frame = create_frame(msg)
-                if frame.Price[0] < buyprice * 0.97 or frame.Price[0] > 1.005 * buyprice:
-                    order = client.create_order(
+                if frame.Price[0] > 1.001 * buyprice:
+                    order = spot_trading_client.create_order(
                                                 symbol=coin,
                                                 side='SELL',
                                                 type='MARKET',
                                                 quantity=buy_quantity
                                                )
-                    print(order)
                     loop.stop()
 
     await client.close_connection()
     
-loop = asyncio.get_event_loop()
-msg = loop.run_until_complete(main())
 
-#all_coin_strategy(6000)
+if __name__ == "__main__":
+    
+    top_coin, buyprice, buy_quantity = all_coin_strategy(5, 50)
+
+    if top_coin and buyprice and buy_quantity:
+        loop = asyncio.get_event_loop()
+        msg = loop.run_until_complete(main(top_coin, buyprice, buy_quantity))
 
 
 

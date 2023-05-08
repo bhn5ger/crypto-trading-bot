@@ -8,7 +8,11 @@ from binance import AsyncClient, BinanceSocketManager
 API_KEY = os.environ.get('binance_api')
 API_SECRET = os.environ.get('binance_secret')
 
-client = Client(API_KEY, API_SECRET, tld='us')
+SPOT_TRADING_API_KEY = os.environ.get('spot_trading_binance_api')
+SPOT_TRADING_API_SECRET = os.environ.get('spot_trading_binance_secret')
+
+client = Client(API_KEY, API_SECRET)
+spot_trading_client = Client(SPOT_TRADING_API_KEY, SPOT_TRADING_API_SECRET, tld='us')
 
 '''
 BUY RESPONSE
@@ -22,9 +26,9 @@ BUY RESPONSE
 
 '''
 
-order = client.create_order(
-                            symbol='BTCUSDT',
-                            side=Client.SIDE_SELL,
+order = spot_trading_client.create_order(
+                            symbol='JUVUSDT',
+                            side=Client.SIDE_BUY,
                             type=Client.ORDER_TYPE_MARKET,
                             quantity=0.003                                      
                         )
