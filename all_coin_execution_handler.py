@@ -17,7 +17,7 @@ spot_trading_client = Client(SPOT_TRADING_API_KEY, SPOT_TRADING_API_SECRET, tld=
 
 def all_coin_strategy(lookback, investment_amt):
 
-    # TO-DO: Try-catch blocks
+    # TO-DO: Try-catch blocks for top_coin, buyprice, buy_quantity
 
     top_coin = all_coin_utils.get_coin_with_greatest_cumulative_returns_in_past_n_minutes(lookback)
     lot_size = all_coin_utils.get_minimum_permitted_investment_qty(top_coin)
