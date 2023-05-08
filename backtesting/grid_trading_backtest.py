@@ -18,6 +18,8 @@ def get_levels(opens, date, first=True):
     
     if first:
         return opens[date] * 0.998, opens[date] * 1.002
+    else:
+        return opens[date] * 0.996, opens[date] * 0.998
     
 
 if __name__ == "__main__":
@@ -25,4 +27,4 @@ if __name__ == "__main__":
     df = get_data('BTCUSDT', '2023-01-01')
     opens = df.resample('D').first().Open
 
-    print(opens)
+    print(get_levels(opens, '2023-01-01'))
