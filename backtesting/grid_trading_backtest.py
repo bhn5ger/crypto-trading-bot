@@ -22,9 +22,16 @@ def get_levels(opens, date, first=True):
         return opens[date] * 0.996, opens[date] * 0.998
     
 
+def sliced_df(df, date):
+
+    return df[df.index.date == pd.to_datetime(date)]
+    
+
 if __name__ == "__main__":
 
     df = get_data('BTCUSDT', '2023-01-01')
     opens = df.resample('D').first().Open
+    levels = get_levels(opens, '2023-01-01')
+    df_t = sliced_df(df, '2023-01-01')
 
-    print(get_levels(opens, '2023-01-01'))
+    print()
