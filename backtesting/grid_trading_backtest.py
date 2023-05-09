@@ -24,8 +24,8 @@ def get_levels(opens, date, first=True):
 
 def sliced_df(df, date):
 
-    return df[df.index.date == pd.to_datetime(date)]
-    
+    return df[df.index.date == pd.to_datetime(date).date()]  
+ 
 
 if __name__ == "__main__":
 
@@ -37,9 +37,13 @@ if __name__ == "__main__":
 
     for index, row in df_t.iterrows():
 
+        #print(index, row)
+
         if not in_position:
 
             levels = get_levels(opens, '2023-01-01')
+
+            print(row.Low, levels[0])
 
             if row.Low <= levels[0]:
 
