@@ -1,7 +1,7 @@
 import pandas as pd
 from binance.client import Client
 
-client = Client()
+client = Client(tld='us')
 
 def get_data(symbol, start):
 
@@ -47,11 +47,13 @@ if __name__ == "__main__":
 
             if row.Low <= levels[0]:
 
+                print('buy')
                 in_position = True
 
         if in_position:
 
             if row.High >= levels[1]:
-                
+
+                print('sold')
                 in_position = False
 
