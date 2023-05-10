@@ -32,14 +32,14 @@ export const features = [
     icon: engine,
     title: "Execution Engine",
     content:
-      "We take proactive steps make sure your information and transactions are secure.",
+      "Using the obtained market data, trading strategies are applied and orders are executed using APIs provided by select exchanges.",
   },
   {
     id: "feature-3",
     icon: bluecloud,
     title: "Distributed Computing",
     content:
-      "A balance transfer credit card can save you a lot of money in interest charges.",
+      "Services are hosted on GCP, in regions closest to exchanges that are used for trading to optimize for low-latency.",
   },
 ];
 
