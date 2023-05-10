@@ -25,7 +25,7 @@ export const features = [
     icon: ddb,
     title: "Data ingestion",
     content:
-      "Before any orders are executed, bWin collects market data using multiple websockets that connect to different data sources. Price data for many coins are constantly streaming via websockets and then stored in an SQL database.",
+      "Before any orders are executed, bWin collects market data using multiple websockets connected to various exchanges. Price data for many coins are constantly streaming via websockets and then stored in an SQL database.",
   },
   {
     id: "feature-2",
