@@ -1,7 +1,7 @@
 # crypto-trading-bot
 
 <p align="center">
-<img src="https://github.com/bhn5ger/crypto-trading-bot/assets/72827220/e4257f77-1cff-4e11-acbd-b219f7ef5db4" width= "450" height="175"/>
+<img src="https://github.com/bhn5ger/crypto-trading-bot/assets/72827220/b3097896-d43b-4a6b-89db-7063143ab09a" width= "354" height="162"/>
 </p>
 
 TO DO:
