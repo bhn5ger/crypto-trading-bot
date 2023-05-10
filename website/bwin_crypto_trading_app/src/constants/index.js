@@ -1,4 +1,4 @@
-import { people01, people02, people03, facebook, instagram, linkedin, twitter, airbnb, binance, coinbase, dropbox, send, shield, star  } from "../assets";
+import { people01, people02, people03, facebook, instagram, linkedin, twitter, airbnb, binance, coinbase, dropbox, send, shield, star, engine, bluecloud, ddb} from "../assets";
 
 export const navLinks = [
   {
@@ -22,22 +22,22 @@ export const navLinks = [
 export const features = [
   {
     id: "feature-1",
-    icon: star,
-    title: "Rewards",
+    icon: ddb,
+    title: "Data ingestion",
     content:
-      "The best credit cards offer some tantalizing combinations of promotions and prizes",
+      "Before any orders are executed, bWin collects market data using multiple websockets that connect to different data sources. Price data for many coins are constantly streaming via websockets and then stored in an SQL database.",
   },
   {
     id: "feature-2",
-    icon: shield,
-    title: "100% Secured",
+    icon: engine,
+    title: "Execution Engine",
     content:
       "We take proactive steps make sure your information and transactions are secure.",
   },
   {
     id: "feature-3",
-    icon: send,
-    title: "Balance Transfer",
+    icon: bluecloud,
+    title: "Distributed Computing",
     content:
       "A balance transfer credit card can save you a lot of money in interest charges.",
   },

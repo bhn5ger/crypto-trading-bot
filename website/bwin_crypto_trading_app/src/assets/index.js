@@ -25,15 +25,22 @@ import people01 from "./people01.png";
 import people02 from "./people02.png";
 import people03 from "./people03.png";
 import hero from "./hero.svg";
+import ddb from "./ddb.png";
+import bluecloud from "./blue_cloud.png";
+import engine from "./engine.png";
+
 
 export {
   airbnb,
   bill,
   binance,
   bwin_logo,
+  bluecloud,
   card,
   coinbase,
   dropbox,
+  ddb,
+  engine,
   logo,
   quotes,
   robot,
