@@ -1,12 +1,33 @@
-import React from 'react'
+import { useState } from "react";
 
-import { close, logo, menu } from "../assets";
+import { close, bwin_logo, menu } from "../assets";
 import { navLinks } from "../constants";
 
 const Navbar = () => {
-  return (
-    <div>Navbar</div>
-  )
-}
+  const [active, setActive] = useState("Home");
+  const [toggle, setToggle] = useState(false);
 
-export default Navbar
+  return (
+    <nav className="w-full flex py-6 justify-between items-center navbar">
+      <img src={bwin_logo} alt="hoobank" className="w-[118px] h-[54px]" />
+
+      <ul className="list-none sm:flex hidden justify-end items-center flex-1">
+        {navLinks.map((nav, index) => (
+          <li
+            key={nav.id}
+            className={`font-poppins font-normal cursor-pointer text-[16px] ${
+              active === nav.title ? "text-white" : "text-dimWhite"
+            } ${index === navLinks.length - 1 ? "mr-0" : "mr-10"}`}
+            onClick={() => setActive(nav.title)}
+          >
+            <a href={`#${nav.id}`}>{nav.title}</a>
+          </li>
+        ))}
+      </ul>
+
+
+    </nav>
+  );
+};
+
+export default Navbar;
