@@ -28,7 +28,7 @@ import hero from "./hero.svg";
 import ddb from "./ddb.png";
 import bluecloud from "./blue_cloud.png";
 import engine from "./engine.png";
-
+import gridtrading from "./grid_trading.png"
 
 export {
   airbnb,
@@ -60,5 +60,6 @@ export {
   people01,
   people02,
   people03,
-  hero
+  hero,
+  gridtrading
 };
