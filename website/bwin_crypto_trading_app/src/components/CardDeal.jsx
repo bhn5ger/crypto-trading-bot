@@ -1,9 +1,22 @@
-import React from 'react'
+import { arbitrage } from "../assets";
+import styles, { layout } from "../style";
 
-const CardDeal = () => {
-  return (
-    <div>CardDeal</div>
-  )
-}
+const CardDeal = () => (
+  <section className={layout.section}>
+    <div className={layout.sectionInfo}>
+      <h2 className={styles.heading2}>
+        Leveraging differences in exchange rates
+      </h2>
+      <p className={`${styles.paragraph} max-w-[470px] mt-5`}>
+        bWin takes advantage of differences in exchange rates for pairs of coins within a single exchange
+        via triangle arbitrage, in addition to differences in exchange rates for pairs of coins between hundreds of exchanges.
+      </p>
+    </div>
 
-export default CardDeal
+    <div className={layout.sectionImg}>
+      <img src={arbitrage} alt="arbitrage" className="w-[100%] h-[100%]" />
+    </div>
+  </section>  
+);
+
+export default CardDeal;

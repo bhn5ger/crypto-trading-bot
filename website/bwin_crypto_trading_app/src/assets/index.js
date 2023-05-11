@@ -29,9 +29,11 @@ import ddb from "./ddb.png";
 import bluecloud from "./blue_cloud.png";
 import engine from "./engine.png";
 import gridtrading from "./grid_trading.png"
+import arbitrage from "./arbitrage.png"
 
 export {
   airbnb,
+  arbitrage,
   bill,
   binance,
   bwin_logo,
