@@ -2,7 +2,7 @@ import { gridtrading } from "../assets";
 import styles, { layout } from "../style";
 
 const Billing = () => (
-  <section id="product" className={layout.sectionReverse}>
+  <section id="strategies" className={layout.sectionReverse}>
     <div className={layout.sectionImgReverse}>
       <img src={gridtrading} alt="gridtrading" className="w-[100%] h-[100%] relative z-[5]" />
 
