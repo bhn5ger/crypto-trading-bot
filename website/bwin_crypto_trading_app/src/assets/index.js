@@ -30,6 +30,8 @@ import bluecloud from "./blue_cloud.png";
 import engine from "./engine.png";
 import gridtrading from "./grid_trading.png"
 import arbitrage from "./arbitrage.png"
+import novelalgo from "./novelalgos.png"
+import fibonacci from "./fibonacci.png"
 
 export {
   airbnb,
@@ -63,5 +65,7 @@ export {
   people02,
   people03,
   hero,
-  gridtrading
+  gridtrading,
+  novelalgo,
+  fibonacci
 };
