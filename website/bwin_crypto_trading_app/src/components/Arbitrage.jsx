@@ -1,7 +1,7 @@
 import { arbitrage } from "../assets";
 import styles, { layout } from "../style";
 
-const CardDeal = () => (
+const Arbitrage = () => (
   <section className={layout.section}>
     <div className={layout.sectionInfo}>
       <h2 className={styles.heading2}>
@@ -19,4 +19,4 @@ const CardDeal = () => (
   </section>  
 );
 
-export default CardDeal;
+export default Arbitrage;

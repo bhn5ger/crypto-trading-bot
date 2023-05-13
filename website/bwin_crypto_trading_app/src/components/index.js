@@ -1,23 +1,21 @@
 import Navbar from "./Navbar";
-import Billing from "./Billing";
-import CardDeal from "./CardDeal";
+import GridTrading from "./GridTrading";
+import Arbitrage from "./Arbitrage";
 import Business from "./Business";
-import Clients from "./Clients";
+import NewAlgos from "./NewAlgos";
 import CTA from "./CTA";
-import Stats from "./Stats";
 import Footer from "./Footer";
-import Testimonials from "./Testimonials";
+import Fibonacci from "./Fibonacci";
 import Hero from "./Hero";
 
 export {
   Navbar,
-  Billing,
-  CardDeal,
+  GridTrading,
+  Arbitrage,
   Business,
-  Clients,
+  NewAlgos,
   CTA,
-  Stats,
   Footer,
-  Testimonials,
+  Fibonacci,
   Hero,
 };

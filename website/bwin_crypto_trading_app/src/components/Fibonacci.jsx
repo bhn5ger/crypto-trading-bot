@@ -1,7 +1,7 @@
 import { fibonacci } from "../assets";
 import styles, { layout } from "../style";
 
-const testimonials = () => (
+const Fibonacci = () => (
   <section className={layout.sectionReverse}>
     <div className={layout.sectionImgReverse}>
       <img src={fibonacci} alt="fibonacci" className="w-[95%] h-[100%] relative z-[5]" />
@@ -24,4 +24,4 @@ const testimonials = () => (
   </section>
 );
 
-export default testimonials;
+export default Fibonacci;

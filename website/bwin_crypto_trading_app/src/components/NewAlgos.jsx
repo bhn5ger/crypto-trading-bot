@@ -1,7 +1,7 @@
 import { novelalgo } from "../assets";
 import styles, { layout } from "../style";
 
-const Clients = () => (
+const NewAlgos = () => (
   <section className={layout.section}>
     <div className={layout.sectionInfo}>
       <h2 className={styles.heading2}>
@@ -19,4 +19,4 @@ const Clients = () => (
   </section>  
 );
 
-export default Clients;
+export default NewAlgos;

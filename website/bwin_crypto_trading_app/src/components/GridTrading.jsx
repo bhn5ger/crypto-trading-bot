@@ -1,7 +1,7 @@
 import { gridtrading } from "../assets";
 import styles, { layout } from "../style";
 
-const Billing = () => (
+const GridTrading = () => (
   <section id="strategies" className={layout.sectionReverse}>
     <div className={layout.sectionImgReverse}>
       <img src={gridtrading} alt="gridtrading" className="w-[100%] h-[100%] relative z-[5]" />
@@ -23,6 +23,8 @@ const Billing = () => (
 
     </div>
   </section>
+
+
 );
 
-export default Billing;
+export default GridTrading;
