@@ -4,7 +4,7 @@ import styles, { layout } from "../style";
 const testimonials = () => (
   <section className={layout.sectionReverse}>
     <div className={layout.sectionImgReverse}>
-      <img src={fibonacci} alt="fibonacci" className="w-[100%] h-[100%] relative z-[5]" />
+      <img src={fibonacci} alt="fibonacci" className="w-[95%] h-[100%] relative z-[5]" />
 
       {/* gradient start */}
       <div className="absolute z-[3] -left-1/2 top-0 w-[50%] h-[50%] rounded-full white__gradient" />
@@ -14,7 +14,7 @@ const testimonials = () => (
 
     <div className={layout.sectionInfo}>
       <h2 className={styles.heading2}>
-        Calculating support and resistance with the golden ratio
+        Calculating levels with the golden ratio
       </h2>
       <p className={`${styles.paragraph} max-w-[470px] mt-5`}>
         Place entry orders, determine stop-loss levels, or set price targets with Fibonacci retracement levels.

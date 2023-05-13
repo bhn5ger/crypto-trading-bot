@@ -14,7 +14,7 @@ const CardDeal = () => (
     </div>
 
     <div className={layout.sectionImg}>
-      <img src={arbitrage} alt="arbitrage" className="w-[100%] h-[100%]" />
+      <img src={arbitrage} alt="arbitrage" className="w-[89%] h-[100%]" />
     </div>
   </section>  
 );
