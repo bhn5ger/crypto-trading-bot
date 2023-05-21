@@ -79,7 +79,7 @@ if __name__ == "__main__":
 
     for date in opens.index:
         
-        df_t = sliced_df(date)
+        df_t = sliced_df(df, date)
 
         if not any(position_arr): # only pull grid levels while not in open position
             first_levels = get_levels(opens, date) 
@@ -90,27 +90,27 @@ if __name__ == "__main__":
             if not position_arr[0]:
 
                 if row.Low <= first_levels[0]:
-                    print('buy')
+                    print('buy', index)
                     position_arr[0] = True
                     buy_1 = first_levels[0]
 
             if position_arr[0] and not position_arr[1]:
 
                 if row.Low <= second_levels[0]:
-                    print('buy second')
+                    print('buy second', index)
                     position_arr[1] = True
                     buy_2 = second_levels[0]
 
                 if row.High >= first_levels[1]:
-                    print('sell')
+                    print('sell', index)
                     position_arr[0] = False
                     profits.append( (first_levels[1] - buy_1) / buy_1 )
 
             if position_arr[1]:
 
                 if row.High >= second_levels[1]:
-                    print('sell second')
+                    print('sell second', index)
                     position_arr[1] = False
                     profits.append( (second_levels[1] - buy_2) / buy_2 )
 
-    print(profits)
+    # print(profits)
