@@ -37,6 +37,10 @@ if __name__ == "__main__":
 
     position_arr = [False, False]
 
+    # Intraday
+
+    '''
+
     for index, row in df_t.iterrows():
 
         if not position_arr[0]:
@@ -51,11 +55,11 @@ if __name__ == "__main__":
         if position_arr[0] and not position_arr[1]:
 
             if row.Low <= second_levels[0]:
-                print('buy')
+                print('buy second')
                 position_arr[1] = True
 
             if row.High >= first_levels[1]:
-                print('sold')
+                print('sell')
                 position_arr[0] = False
 
         if position_arr[1]:
@@ -63,3 +67,36 @@ if __name__ == "__main__":
             if row.High >= second_levels[1]:
                 print('sell second')
                 position_arr[1] = False
+
+    '''
+
+    # Interday
+
+    for date in opens.index:
+
+        for index, row in df_t.iterrows():
+
+            if not position_arr[0]:
+
+                first_levels = get_levels(opens, '2023-01-02') # only pull grid levels while in open position
+                second_levels = get_levels(opens, '2023-01-02', False)
+
+                if row.Low <= first_levels[0]:
+                    print('buy')
+                    position_arr[0] = True
+
+            if position_arr[0] and not position_arr[1]:
+
+                if row.Low <= second_levels[0]:
+                    print('buy second')
+                    position_arr[1] = True
+
+                if row.High >= first_levels[1]:
+                    print('sell')
+                    position_arr[0] = False
+
+            if position_arr[1]:
+
+                if row.High >= second_levels[1]:
+                    print('sell second')
+                    position_arr[1] = False
