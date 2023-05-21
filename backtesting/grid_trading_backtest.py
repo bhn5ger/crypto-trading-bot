@@ -31,9 +31,9 @@ if __name__ == "__main__":
 
     # TODO: Parameterize date
 
-    df = get_data('BTCUSDT', '2023-01-01')
+    df = get_data('BTCUSDT', '2023-01-02')
     opens = df.resample('D').first().Open
-    df_t = sliced_df(df, '2023-01-01')
+    df_t = sliced_df(df, '2023-01-02')
 
     position_arr = [False, False]
 
@@ -41,8 +41,8 @@ if __name__ == "__main__":
 
         if not position_arr[0]:
 
-            first_levels = get_levels(opens, '2023-01-01')
-            second_levels = get_levels(opens, '2023-01-01', False)
+            first_levels = get_levels(opens, '2023-01-02') # only pull grid levels while in open position
+            second_levels = get_levels(opens, '2023-01-02', False)
 
             if row.Low <= first_levels[0]:
                 print('buy')
