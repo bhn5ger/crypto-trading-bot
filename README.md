@@ -9,3 +9,4 @@ TO DO:
 - Try some more strategies
 - Host on GCP
 - Front-end
+- Requirements.txt file to install dependencies quickly on VMs
