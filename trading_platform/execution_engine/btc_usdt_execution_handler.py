@@ -1,4 +1,6 @@
 import os
+import sys
+sys.path.insert(1, '../utils')
 import btc_usdt_utils
 from binance.client import Client 
 

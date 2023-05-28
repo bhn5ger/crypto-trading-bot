@@ -8,7 +8,12 @@ API_SECRET = os.environ.get('binance_secret')
 
 client = Client(API_KEY, API_SECRET, tld='us') # not necessary?
 
-engine = sqlalchemy.create_engine('sqlite:///BTCUSDTstream.db')
+current_directory = os.getcwd()
+relative_path = '../data_stream/BTCUSDTstream.db'
+absolute_path = os.path.abspath(os.path.join(current_directory, relative_path))
+
+engine = sqlalchemy.create_engine('sqlite:///' + absolute_path)
+
 
 def get_cumulative_returns(df):
 

@@ -76,7 +76,7 @@ async def main(coin, buyprice, buy_quantity):
 
 if __name__ == "__main__":
     
-    top_coin, buyprice, buy_quantity = all_coin_strategy(5, 50)
+    top_coin, buyprice, buy_quantity = all_coin_strategy(5, 3)
 
     if top_coin and buyprice and buy_quantity:
         loop = asyncio.get_event_loop()
