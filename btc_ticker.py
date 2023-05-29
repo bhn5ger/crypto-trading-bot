@@ -13,4 +13,3 @@ while True:
     btc_price = client.get_symbol_ticker(symbol="BTCUSDT")
     
     print("       ", float(btc_price['price']))
-

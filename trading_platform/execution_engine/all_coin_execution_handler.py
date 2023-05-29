@@ -1,5 +1,7 @@
 import os, asyncio
 import pandas as pd
+import sys
+sys.path.insert(1, '../utils')
 import all_coin_utils, account_utils
 from binance.client import Client 
 from binance import AsyncClient, BinanceSocketManager
@@ -81,7 +83,3 @@ if __name__ == "__main__":
     if top_coin and buyprice and buy_quantity:
         loop = asyncio.get_event_loop()
         msg = loop.run_until_complete(main(top_coin, buyprice, buy_quantity))
-
-
-
-    

@@ -16,12 +16,3 @@ def get_available_balance(symbol):
     free = [i for i in client.get_account()['balances'] if i['asset'] == symbol][0]['free']
 
     return free
-
-
-
-
-
-
-
-
-

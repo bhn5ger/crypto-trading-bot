@@ -55,6 +55,7 @@ def btc_usdt_strategy(entry, lookback, qty, open_position=False):
                 since_buy_ret = btc_usdt_utils.get_cumulative_returns(since_buy)
                 last_entry = since_buy_ret[since_buy_ret.last_valid_index()]
 
+                # add print for df
                 print(last_entry, last_entry > 0.0002)
 
                 if last_entry > 0.0002: # this means 0.02%

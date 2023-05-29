@@ -114,3 +114,4 @@ if __name__ == "__main__":
                     profits.append( (second_levels[1] - buy_2) / buy_2 )
 
     # print(profits)
+    

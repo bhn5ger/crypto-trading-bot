@@ -34,5 +34,3 @@ engine = sqlalchemy.create_engine('sqlite:///BTCUSDTstream.db')
 
 loop = asyncio.get_event_loop()
 msg = loop.run_until_complete(main())
-
-

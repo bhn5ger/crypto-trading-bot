@@ -11,7 +11,11 @@ API_SECRET = os.environ.get('binance_secret')
 
 client = Client(API_KEY, API_SECRET, tld='us') # not necessary?
 
-engine = sqlalchemy.create_engine('sqlite:///CryptoDB.db')
+current_directory = os.getcwd()
+relative_path = '../data_stream/CryptoDB.db'
+absolute_path = os.path.abspath(os.path.join(current_directory, relative_path))
+
+engine = sqlalchemy.create_engine('sqlite:///' + absolute_path)
 
 symbols = pd.read_sql('SELECT name FROM sqlite_master WHERE type="table"', engine).name.to_list()
 
@@ -40,5 +44,3 @@ def get_minimum_permitted_investment_qty(symbol):
     lotsize = float([i for i in info['filters'] if i['filterType'] == 'LOT_SIZE'][0]['minQty'])
 
     return lotsize
-
-

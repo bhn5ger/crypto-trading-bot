@@ -14,7 +14,6 @@ absolute_path = os.path.abspath(os.path.join(current_directory, relative_path))
 
 engine = sqlalchemy.create_engine('sqlite:///' + absolute_path)
 
-
 def get_cumulative_returns(df):
 
     cumret = (df.Price.pct_change() + 1).cumprod() - 1
@@ -34,4 +33,3 @@ def get_price_data_since_buy(txnt_time):
     sincebuy = df.loc[df.Time > pd.to_datetime(txnt_time, unit='ms')]
 
     return sincebuy
-
