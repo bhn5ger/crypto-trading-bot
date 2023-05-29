@@ -90,8 +90,28 @@ async def main(coin, buyprice, buy_quantity):
     
 
 if __name__ == "__main__":
+
+    '''
+    top_coin: ETHUSDT
+    lot_size: 0.0001
+    free_usd: 98.02801345
+    price of top coin: 1893.94
+    buy_quantity of top coin: 0.0016
+    Buy if my balance, 98.02801345 is greater than the investment amount, 3
+    Order: {'symbol': 'ETHUSDT', 'orderId': 892181217, 'orderListId': -1, 'clientOrderId': 'WirUWY4UnB156vf4mY21bH', 
+    'transactTime': 1685391976044, 'price': '0.00000000', 'origQty': '0.00160000', 'executedQty': '0.00160000', 
+    'cummulativeQuoteQty': '3.03051200', 'status': 'FILLED', 'timeInForce': 'GTC', 'type': 'MARKET', 'side': 'BUY', 
+    'workingTime': 1685391976044, 'fills': [{'price': '1894.07000000', 'qty': '0.00160000', 
+    'commission': '0.00000000', 'commissionAsset': 'BNB', 'tradeId': 15184291}], 
+    'selfTradePreventionMode': 'EXPIRE_MAKER'}
+    Top coin buy price: 1894.07
+    Sell if 1893.94 the price of ETHUSDT is greater than 1895.9640699999998
+    Sell if 1893.94 the price of ETHUSDT is greater than 1895.9640699999998
+    Sell if 1893.94 the price of ETHUSDT is greater than 1895.9640699999998
+    **JSON of sell order when ETHUSDT is greater than 1895.9640699999998**
+    '''
     
-    top_coin, buyprice, buy_quantity = all_coin_strategy(5, 3)
+    top_coin, buyprice, buy_quantity = all_coin_strategy(1, 3) # Identify the coin with the greatest cumulative returns in the past minute and buy $3 worth of it. 
 
     if top_coin and buyprice and buy_quantity:
         loop = asyncio.get_event_loop()
