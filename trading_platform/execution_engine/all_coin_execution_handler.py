@@ -24,9 +24,18 @@ def all_coin_strategy(lookback, investment_amt):
     top_coin = all_coin_utils.get_coin_with_greatest_cumulative_returns_in_past_n_minutes(lookback)
     lot_size = all_coin_utils.get_minimum_permitted_investment_qty(top_coin)
     free_usd = account_utils.get_available_balance('USDT')
+    
+    print("top_coin:", top_coin)
+    print("lot_size:", lot_size)
+    print("free_usd:", free_usd)
 
     price = float(client.get_symbol_ticker(symbol=top_coin)['price'])
     buy_quantity = round(investment_amt/price, len(str(lot_size).split('.')[1]))
+
+    print("price of top coin:", price)
+    print("buy_quantity of top coin:", buy_quantity)
+
+    print("Condition if balance > investment_amt:", float(free_usd), ">", investment_amt)
 
     if float(free_usd) > investment_amt:
 
@@ -36,8 +45,11 @@ def all_coin_strategy(lookback, investment_amt):
                                     type='MARKET',
                                     quantity=buy_quantity
                                    )
-        
+
+        print("Order:", order)
         buyprice = float(order['fills'][0]['price'])
+        print("Top coin buy price:", buyprice)
+
         return top_coin, buyprice, buy_quantity
         
     else:
@@ -64,6 +76,7 @@ async def main(coin, buyprice, buy_quantity):
             msg = await tscm.recv()
             if msg:
                 frame = create_frame(msg)
+                print("Sell if", frame.Price[0], "the price of", coin, "is greater than", 1.001 * buyprice)
                 if frame.Price[0] > 1.001 * buyprice:
                     order = spot_trading_client.create_order(
                                                 symbol=coin,

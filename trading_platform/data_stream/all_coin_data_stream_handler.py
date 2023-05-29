@@ -40,6 +40,7 @@ async def main():
             msg = await tscm.recv()
             if msg:
                 frame = create_frame(msg)
+                print(frame)
                 frame.to_sql(frame.symbol[0], engine, if_exists='append', index=False)
                 
     await client.close_connection()
