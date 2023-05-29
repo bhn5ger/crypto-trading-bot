@@ -35,7 +35,7 @@ def all_coin_strategy(lookback, investment_amt):
     print("price of top coin:", price)
     print("buy_quantity of top coin:", buy_quantity)
 
-    print("Condition if balance > investment_amt:", float(free_usd), ">", investment_amt)
+    print("Buy if my balance,", float(free_usd), "is greater than the investment amount,", investment_amt)
 
     if float(free_usd) > investment_amt:
 
