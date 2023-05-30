@@ -1,21 +1,15 @@
 import Navbar from "./Navbar";
-import GridTrading from "./GridTrading";
-import Arbitrage from "./Arbitrage";
+import Strategies from "./Strategies";
 import Business from "./Business";
-import NewAlgos from "./NewAlgos";
 import CTA from "./CTA";
 import Footer from "./Footer";
-import Fibonacci from "./Fibonacci";
 import Hero from "./Hero";
 
 export {
   Navbar,
-  GridTrading,
-  Arbitrage,
+  Strategies,
   Business,
-  NewAlgos,
   CTA,
   Footer,
-  Fibonacci,
   Hero,
 };

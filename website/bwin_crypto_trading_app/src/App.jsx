@@ -1,5 +1,5 @@
 import styles from './style';
-import { GridTrading, Business, Arbitrage, NewAlgos, CTA, Footer, Navbar, Fibonacci, Hero } from "./components";
+import { Strategies, Business, CTA, Footer, Navbar, Hero } from "./components";
 
 const App = () => (
   <div className="bg-primary w-full overflow-hidden">
@@ -18,10 +18,7 @@ const App = () => (
     <div className={`bg-primary ${styles.paddingX} ${styles.flexCenter}`}>
       <div className={`${styles.boxWidth}`}>
         <Business />
-        <GridTrading />
-        <Arbitrage />
-        <Fibonacci />
-        <NewAlgos />
+        <Strategies />
         <CTA />
         <Footer />
       </div>
