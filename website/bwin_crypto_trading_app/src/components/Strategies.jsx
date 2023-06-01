@@ -19,7 +19,7 @@ const Strategies = () => (
         Apply various trading strategies
       </h2>
       <p className={`${styles.paragraph} max-w-[470px] mt-5`}>
-        In addition new trading strategies, use popular trading strategies 
+        In addition to new trading strategies, use popular trading strategies 
         including grid trading, arbitrage, and fibonacci retracement that bet on volatility, 
         leverage differences in exchange rates, and calculate levels using the golden ratio.
       </p>
