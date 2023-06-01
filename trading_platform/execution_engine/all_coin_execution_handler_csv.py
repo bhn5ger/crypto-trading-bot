@@ -9,3 +9,7 @@ API_SECRET = os.environ.get('binance_secret')
 
 SPOT_TRADING_API_KEY = os.environ.get('spot_trading_binance_api')
 SPOT_TRADING_API_SECRET = os.environ.get('spot_trading_binance_secret')
+
+client = Client(API_KEY, API_SECRET) # Might have to use spot trading
+symbols = os.listdir('/home/briann.briannn/crypto-trading-bot/trading_platform/data_stream/csvs') # Use relative path before deploying to production
+
