@@ -3,6 +3,9 @@ from binance.client import Client
 import websocket, json
 import pandas as pd
 import datetime as dt
+import sys
+sys.path.insert(1, '../utils')
+import all_coin_utils, account_utils
 
 API_KEY = os.environ.get('binance_api')
 API_SECRET = os.environ.get('binance_secret')
