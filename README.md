@@ -10,4 +10,5 @@ TO DO:
 - Host on GCP
 - Front-end
 - Requirements.txt file to install dependencies quickly on VMs
-- Data stream price data lags behind by 1-2s, resulting in strategies being applied to prices 1-2s ago and trades made 1-2s too slow. Optimize latency by executing code in regions closer to exchanges, and using websockets??
+- Data stream price data lags behind by 1-2s, resulting in strategies being applied to prices 1-2s ago and trades made 1-2s too slow. Optimize latency by executing code in regions closer to exchanges, and using websockets
+- Add support for mobile for the website, including fixing the hamburger menu and enlarging the strategies image
