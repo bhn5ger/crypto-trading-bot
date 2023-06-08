@@ -9,10 +9,10 @@ const Footer = () => (
         <img
           src={bwin_logo}
           alt="bwin_logo"
-          className="w-[266px] h-[72.14px] object-contain self-start"
+          className="w-[170px] h-[72.14px] object-contain self-start"
         />
         <p className={`${styles.paragraph} mt-4 max-w-[312px]`}>
-          Winning profits even in winters.
+          Winning in winters.
         </p>
       </div> 
 

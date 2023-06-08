@@ -16,12 +16,13 @@ const Strategies = () => (
 
     <div className={layout.sectionInfo}>
       <h2 className={styles.heading2}>
-        Apply various trading strategies
+        Applying various trading strategies
       </h2>
       <p className={`${styles.paragraph} max-w-[470px] mt-5`}>
-        In addition to new trading strategies, use popular trading strategies 
-        including grid trading, arbitrage, and fibonacci retracement that bet on volatility, 
-        leverage differences in exchange rates, and calculate levels using the golden ratio.
+        In addition to new trading strategies, popular trading strategies 
+        including grid trading, arbitrage, and fibonacci retracement are applied. 
+        These strategies bet on volatility and leverage differences in exchange rates
+        which are abundant in crypto.
       </p>
 
     </div>

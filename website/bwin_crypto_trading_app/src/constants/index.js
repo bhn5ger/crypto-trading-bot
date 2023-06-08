@@ -21,21 +21,21 @@ export const features = [
     icon: ddb,
     title: "Data ingestion",
     content:
-      "Before any orders are executed, bWin collects market data using multiple websockets connected to various exchanges. Price data for many coins are constantly streaming via websockets and then stored in an SQL database.",
+      "Real-time market data is collected using websockets connected to various exchanges. Price data for many coins are constantly streaming via these websockets and then stored in a database.",
   },
   {
     id: "feature-2",
     icon: engine,
     title: "Execution Engine",
     content:
-      "Using the obtained market data, trading strategies are applied and orders are executed using APIs provided by select exchanges.",
+      "Trading strategies are applied to the market data and orders are sent using APIs provided by exchanges.",
   },
   {
     id: "feature-3",
     icon: bluecloud,
     title: "Distributed Computing",
     content:
-      "Services are hosted on GCP, in regions closest to exchanges that are used for trading to optimize for low-latency.",
+      "Services are hosted on GCP, in regions closest to exchanges to optimize for low-latency.",
   },
 ];
 

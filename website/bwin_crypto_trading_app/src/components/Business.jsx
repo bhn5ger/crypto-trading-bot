@@ -24,7 +24,7 @@ const Business = () =>  (
         Designed to be scalable, modular, and resilient <br className="sm:block hidden" />
       </h2>
       <p className={`${styles.paragraph} max-w-[470px] mt-5`}>
-        Using a microservice architecture-like approach, bWin's system is decoupled into
+        Using a microservice architecture-like approach, bWin is decoupled into
         highly available services hosted on the cloud that accomplish different tasks
         and work together to automate crypto trading.
       </p>
