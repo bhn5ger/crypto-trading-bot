@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import { close, bwin_logo, menu } from "../assets";
 import { navLinks } from "../constants";
+import Button from "./Button";
 
 const Navbar = () => {
   const [active, setActive] = useState("Home");
@@ -17,12 +18,15 @@ const Navbar = () => {
             key={nav.id}
             className={`font-poppins font-normal cursor-pointer text-[16px] ${
               active === nav.title ? "text-white" : "text-dimWhite"
-            } ${index === navLinks.length - 1 ? "mr-0" : "mr-10"}`}
+            } ${index === navLinks.length - 1 ? "mr-5" : "mr-10"}`}
             onClick={() => setActive(nav.title)}
           >
             <a href={`#${nav.id}`}>{nav.title}</a>
           </li>
         ))}
+          <li> 
+            <Button styles="ml-4" /> 
+          </li>
       </ul>
       
       {/* Mobile */} 

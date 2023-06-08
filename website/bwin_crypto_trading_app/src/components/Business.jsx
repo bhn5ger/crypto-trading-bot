@@ -28,7 +28,6 @@ const Business = () =>  (
         highly available services hosted on the cloud that accomplish different tasks
         and work together to automate crypto trading.
       </p>
-
     </div>
 
     <div className={`${layout.sectionImg} flex-col`}>
