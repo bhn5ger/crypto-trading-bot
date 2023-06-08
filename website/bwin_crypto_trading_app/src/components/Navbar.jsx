@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { Link } from "react-router-dom";
 import { close, bwin_logo, menu } from "../assets";
 import { navLinks } from "../constants";
 import Button from "./Button";
@@ -25,7 +25,7 @@ const Navbar = () => {
           </li>
         ))}
           <li> 
-            <Button styles="ml-4" /> 
+            <Link to="/login"><Button styles="ml-4" /></Link>
           </li>
       </ul>
       
