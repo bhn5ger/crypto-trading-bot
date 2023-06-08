@@ -1,11 +1,51 @@
 /* --------------------------- MOBILE VERSION ------------------------------ */
 
-body {
-    background: linear-gradient(153.47deg, rgba(255, 255, 255, 0) -341.94%, #14101d 95.11%);
+
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
+
+:root {
+  --black-gradient: linear-gradient(
+    144.39deg,
+    #ffffff -278.56%,
+    #6d6d6d -78.47%,
+    #11101d 91.61%
+  );
+  --card-shadow: 0px 20px 100px -10px rgba(66, 71, 91, 0.1);
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+.text-gradient {
+    background: radial-gradient(
+      64.18% 64.18% at 71.16% 35.69%,
+      #def9fa 0.89%,
+      #bef3f5 17.23%,
+      #9dedf0 42.04%,
+      #7de7eb 55.12%,
+      #5ce1e6 71.54%,
+      #33bbcf 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
   }
   
-  
 
+
+
+body {
+    background: linear-gradient(
+        -168.39deg,
+        #11101d  -278.56%,
+        #11101d  -78.47%,
+        #11101d 91.61%
+      );
+}
+  
 .container {
   display: flex;
   justify-content: center;
@@ -14,7 +54,12 @@ body {
 }
 
 .cover {
-    background-color: linear-gradient(153.47deg, rgba(255, 255, 255, 0) -341.94%, #14101d 95.11%);
+    background: linear-gradient(
+        -168.39deg,
+        #11101d  -278.56%,
+        #11101d  -78.47%,
+        #11101d 91.61%
+      );
     width: 70%;
     height: 50%;
     position: absolute;
@@ -22,7 +67,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 1em;
-    box-shadow: 0 0.188em 1.550em rgb(156, 156, 156);
+    box-shadow: 0 0.1em 1.0em rgb(71, 70, 70);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -33,11 +78,12 @@ body {
 input {
     border: none;
     background-color: rgb(229, 226, 226);
-    width: 80%;
+    width: 60%;
     border-radius: 0.25em;
     text-align: center;
     padding: 2em;
     font-size: 0.75em;
+    height: 6%; 
 }
 
 input:focus {
@@ -45,9 +91,9 @@ input:focus {
 }
 
 .login-btn {
-    width: 40%;
+    width: 60%;
     height: 3em;
-    background-color: rgb(32, 177, 255);
+    background-color: rgb(143, 234, 239);
     display: flex;
     justify-content: center;
     align-items: center;

@@ -25,13 +25,15 @@ const LoginForm = () => {
     return (
         <div className="container">
           <div className="cover">
-
-            <h1 className="flex-1 font-poppins font-semibold ss:text-[36px] text-[26px] text-white">
-            View the financial dashboard tracking b<span className="text-gradient">Win's</span> performance
+            <h1 className={`py-3 px-4 font-poppins font-normal text-[32px] text-white outline-none text-center ${styles}`}>
+              Investor Login
+            </h1>
+            <h1 className={`py-3 px-4 font-poppins font-normal text-[16px] text-white outline-none text-center ${styles}`}>
+              View bWin's financial dashboard <br></br> and track its performance
             </h1>
 
-            <input type="text" placeholder="username" />
-            <input type="password" placeholder="password" />
+            <input type="text" placeholder="Username" />
+            <input type="password" placeholder="Password" />
     
             <div className="login-btn" onClick={popup}>
                 Login
