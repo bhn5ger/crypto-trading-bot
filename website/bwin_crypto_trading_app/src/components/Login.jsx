@@ -40,8 +40,10 @@ const LoginForm = () => {
             </div>
     
             <div className={popupStyle}>
-              <h3>Login Failed</h3>
-              <p>Username or password incorrect</p>
+              <h3>Login failed</h3>
+              <br></br>
+              <p>The username or password you entered</p>
+              <p>is incorrect, please try again.</p>
             </div>
           </div>
         </div>
