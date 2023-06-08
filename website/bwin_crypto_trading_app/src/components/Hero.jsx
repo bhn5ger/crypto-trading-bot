@@ -13,9 +13,9 @@ const Hero = () => {
         </div>
         
         <p className={`${styles.paragraph} max-w-[470px] mt-5`}>
-          a crypto trading bot built with Python. bWin's services
-          ingest data from exchanges, apply trading strategies,
-          and execute orders. 24/7 trading automatically in the cloud.
+          a crypto trading bot built with Python. bWin
+          ingests market data, applies trading strategies,
+          and sends orders to exchanges. 24/7 trading automatically in the cloud.
         </p>
       </div>
 
