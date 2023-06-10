@@ -19,7 +19,7 @@ const LoginForm = () => {
 
     const popup = () => {
         showPopup("login-popup")
-        setTimeout(() => showPopup("hide"), 3000)
+        setTimeout(() => showPopup("hide"), 1000)
     }
 
     return (
