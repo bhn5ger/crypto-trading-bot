@@ -9,7 +9,7 @@ TO DO:
 - Requirements.txt file to install dependencies quickly on VMs
 - Decouple execution engine into a service dedicated to applying strategies and sending orders to a queue and a service dedicated to processing that queue and executing orders
 - Currently, if code fails the close position logic (sell) after opening a position (buy) it does not retry at the close position logic to close the open position, but instead starts completely over opening another position
-- Must add retries using temporal with workflows and activities that can retry executing code exactly where it failed with the same data at failed runtime
+- Must add retries using temporal with workflows and activities that can retry executing code exactly where it failed with the same data at failed runtime. Workflow can be the strategy and activities can be each buy/sell signals in the strategy
 - Add support for mobile for the website, including fixing the hamburger menu and enlarging the strategies image
 
 PREVIOUS:
