@@ -4,6 +4,8 @@
 <img src="https://github.com/bhn5ger/crypto-trading-bot/assets/72827220/b3097896-d43b-4a6b-89db-7063143ab09a" width= "354" height="162"/>
 </p>
 
+Visit bwincrypto.xyz for more info and a live dashboard of the bot's trading performance.
+
 TO DO:
 - Trading on decentralized exchanges using sandwich trading
     - Prone to salmonella attack: https://github.com/Defi-Cartel/salmonella
